@@ -1,12 +1,7 @@
 # NEAT
+---
 
-## Table of Contents
+[NEAT](https://en.wikipedia.org/wiki/Neuroevolution_of_augmenting_topologies) or [NeuroEvolution of Augmenting Topologies](https://en.wikipedia.org/wiki/Neuroevolution_of_augmenting_topologies) is an method for evolving artificial neural networks.
+This repository is a C# libarary for a slightly modified algorithm of NEAt.
 
-- [Description](https://github.com/Unknown-3301)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Generated-README-Example](#generated-readme-example)
-- [Contribution](#contribution)
-- [Test Instructions](#test-instructions)
-- [Licenses](#licenses)
-- [Contact Information](#contactin-formation)
+## Usage

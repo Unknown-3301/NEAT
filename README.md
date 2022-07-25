@@ -67,3 +67,40 @@ Then create the population using the function from the environment created earli
 ```
 Genome[] population = environment.CreatePopulation(150, 2, 1, 1, 1, 1, false, Genome.ActivationFunction.SharpTanh, Genome.ActivationFunction.SharpSigmoid);
 ```
+Now evaluate the whole population using the Fitness property for every genome 'genome.Fitness', that property shows how good a genome is (like score). Here is an example for evaluation for the XOR problem.
+```
+for (int i = 0; i < population.Length; i++)
+{
+   TestGenome(population[i]);
+}
+
+void TestGenome(Genome genome)
+{
+   genome.Fitness = 0;
+   double[] xorInput = new double[2]; //the genome input array, it's size must equal the inputNum (number of input nodes in the genome)
+   
+   //test the xor input (0, 0), the expected output is 0
+   xorInput[0] = 0;
+   xorInput[1] = 0;
+   double genomeOutput = genome.CalculateOutput(inputs[i])[0]; //after using the genome it outputs an array of doubles, it represent the output values from the output nodes in the genome. We only took the first element because the xor only outputs one number
+   genome.Fitness += 1 - genomeOutput;
+   
+   //test the xor input (1, 0), the expected output is 1
+   xorInput[0] = 1;
+   xorInput[1] = 0;
+   genomeOutput = genome.CalculateOutput(inputs[i])[0];
+   genome.Fitness += genomeOutput;
+   
+   //test the xor input (0, 1), the expected output is 1
+   xorInput[0] = 0;
+   xorInput[1] = 1;
+   genomeOutput = genome.CalculateOutput(inputs[i])[0];
+   genome.Fitness += genomeOutput;
+   
+   //test the xor input (1, 1), the expected output is 0
+   xorInput[0] = 1;
+   xorInput[1] = 1;
+   genomeOutput = genome.CalculateOutput(inputs[i])[0];
+   genome.Fitness += 1 - genomeOutput;
+}
+```

@@ -5,7 +5,7 @@
 This repository is a C# libarary for a slightly modified algorithm of NEAt.
 
 ## Usage
-First create a 'GenomeEnvironment' instance. to create it it needs the parameters:
+First create a `GenomeEnvironment` instance. to create it it needs the parameters:
 - **MutationInfo**: a struct that holds information about the mutation parameters for evolving artificial neural networks, these parameters are:
   - **AddConnectionChance**: represent the chance of adding a new connection when mutating, where 0 is 0% and 1 is 100%.
   - **AddNodeChance**: represent the chance of adding a new node when mutating, where 0 is 0% and 1 is 100%.
@@ -53,7 +53,7 @@ First create a 'GenomeEnvironment' instance. to create it it needs the parameter
 GenomeEnvironment environment = new GenomeEnvironment(info, dynamics, 15, 1, 1, 0.5);
 environment.ThreshholdStep = 0.1;
 ```
-Then create the population using the function from the environment created earlier 'environment.CreatePopulation()'. There are parameters for the function, these parameters are:
+Then create the population using the function from the environment created earlier `environment.CreatePopulation()`. There are parameters for the function, these parameters are:
 - **populationNumber**: the number of genomes desired for the population.
 - **inputNum**: the number of input nodes for each genome.
 - **outputNum**: the number of output nodes for each genome.
@@ -67,7 +67,7 @@ Then create the population using the function from the environment created earli
 ```
 Genome[] population = environment.CreatePopulation(150, 2, 1, 1, 1, 1, false, Genome.ActivationFunction.SharpTanh, Genome.ActivationFunction.SharpSigmoid);
 ```
-Now evaluate the whole population using the Fitness property for every genome 'genome.Fitness', that property shows how good a genome is (like score). Here is an example for evaluation for the XOR problem.
+Now evaluate the whole population using the Fitness property for every genome `genome.Fitness`, that property shows how good a genome is (like score). Here is an example for evaluation for the XOR problem.
 ```
 for (int i = 0; i < population.Length; i++)
 {
@@ -104,14 +104,14 @@ void TestGenome(Genome genome)
    genome.Fitness += 1 - genomeOutput;
 }
 ```
-Now after evaluating the whole population we call 'environment.NextGeneration()' that will return a array of genomes that represent the nex generationg genomes.
+Now after evaluating the whole population we call `environment.NextGeneration()` that will return a array of genomes that represent the nex generationg genomes.
 ```
 population = environment.NextGeneration();
 ```
-Now keep evaluating and calling 'environment.NextGeneration()' until one of the genome have the fitness desired.
+Now keep evaluating and calling `environment.NextGeneration()` until one of the genome have the fitness desired.
 
 ## Saving and loading
-if you want to save a genome you can use the function 'genome.Save()' it will return a **GenomeSaveFile** class, this class will hold the genome information, this class can be saved to computer file using serialization. When loading you can just create a new genome with this **GenomeSaveFile** to load 
+if you want to save a genome you can use the function `genome.Save()`, it will return a **GenomeSaveFile** class, this class will hold the genome information, this class can be saved to computer file using serialization. When loading you can just create a new genome with this **GenomeSaveFile** to load 
 ```
 GenomeSaveFile save = //get it from the computer;
 Genome genome = new Genome(save);

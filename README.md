@@ -35,8 +35,30 @@ First create a 'GenomeEnvironment' instance. to create it it needs the parameter
 - **Dynamics**: a struct that holds the information about how dynamic the mutation parameters and other parameters are. There is alot of details in this struct and it's parameters, so I will explain the basic parameters.
   - **DynamicThreshhold**: when true the **Threshold** value will be adjusted close to **SpeciesSizeTarget**. The **Threshold** value will be explained later.
   - **SpeciesSizeTarget**: the number of species wanted to get to, this value will be usefull only if **DynamicThreshhold** is true.
+  ```
+  // as example
+  Dynamics dynamics = new Dynamics()
+  {
+      DynamicAddConnection = new DynamicValue(),
+      DynamicAddNode = new DynamicValue(),
+      DynamicConnectionEnable = new DynamicValue(),
+      DynamicConnectionWeightChange = new DynamicValue(),
+      DynamicConnectionWeightMutation = new DynamicValue(false, -2, 1, 0.1),
+      DynamicConnectionWeightOffset = new DynamicValue(),
+      DynamicNodeBiasChange = new DynamicValue(),
+      DynamicNodeBiasMutation = new DynamicValue(false, -2, 1, 0.1),
+      DynamicNodeBiasOffset = new DynamicValue(),
+      DynamicThreshhold = true,
+      GenerationDynamic = 4000,
+      SpeciesSizeTarget = 32
+  };
+  ```
 
 - **dropOfAge**: the number of generations for a specie to improve or it will be penalized.
 - **CompatibilityThreshold**: the value to determine if two genomes can be in the same specie, so if we have two genomes and calculate how different they are from each other, by a distance function. We will compare the value resulted from the function with the threshold, if the value is smaller then they are similar and put them in the same specie.
 - **execessDisjointStrength**: represent the amount of importance for execess and disjoint genes when calculating the distance between 2 genomes.
 - **matchingWeightsStrength**: represent the amount of importance for the difference between the weights of the matching genes when calculating the distance between 2 genomes.
+```
+// as example
+GenomeEnvironment environment = new GenomeEnvironment(info, dynamics, 15, 1, 1, 0.5);
+```

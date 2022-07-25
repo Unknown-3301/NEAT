@@ -111,7 +111,7 @@ population = environment.NextGeneration();
 Now keep evaluating and calling 'environment.NextGeneration()' until one of the genome have the fitness desired.
 
 ## Saving and loading
-if you want to save a genome you can use the function 'genome.Save()' , it will return a **GenomeSaveFile** class, this class will hold the genome information, this class can be saved to computer file using serialization. When loading you can just create a new genome with this **GenomeSaveFile** to load 
+if you want to save a genome you can use the function 'genome.Save()' it will return a **GenomeSaveFile** class, this class will hold the genome information, this class can be saved to computer file using serialization. When loading you can just create a new genome with this **GenomeSaveFile** to load 
 ```
 GenomeSaveFile save = //get it from the computer;
 Genome genome = new Genome(save);

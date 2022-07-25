@@ -6,7 +6,7 @@ This repository is a C# libarary for a slightly modified algorithm of NEAt.
 
 ## Usage
 First create a 'GenomeEnvironment' instance. to create it it needs the parameters:
-- **MutationInfo**: a struct that contains information about the mutation parameters for evolving artificial neural networks, these parameters are:
+- **MutationInfo**: a struct that holds information about the mutation parameters for evolving artificial neural networks, these parameters are:
   - **AddConnectionChance**: represent the chance of adding a new connection when mutating, where 0 is 0% and 1 is 100%.
   - **AddNodeChance**: represent the chance of adding a new node when mutating, where 0 is 0% and 1 is 100%.
   - **ConnectionEnableChance**: represent the chance of enabling a disabled connection when mutating, where 0 is 0% and 1 is 100%.
@@ -16,3 +16,6 @@ First create a 'GenomeEnvironment' instance. to create it it needs the parameter
   - **NodeBiasChangeChance**: represent the change of choosing the first of two methods for mutating a node. It's the same as **ConnectionWeightChangeChance** but a node instead of connection, and the node bias instead of the connection weight, where 0 is 0% and 1 is 100%.
   - **NodeBiasMutationChance**:  represent the chance of mutating a node, where 0 is 0% and 1 is 100%.
   - **NodeBiasOffsetPower**: The same as **ConnectionWeightOffsetPower** but to the node bias instead of connection weight.
+ 
+- **Dynamics**: a struct that holds the information about how dynamic the mutation parameters and other parameters are. There is alot of details in this struct and it's parameters, so I will explain the basic parameters.
+  - **DynamicThreshhold**: 

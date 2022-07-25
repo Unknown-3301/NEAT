@@ -16,7 +16,7 @@ First create a 'GenomeEnvironment' instance. to create it it needs the parameter
   - **NodeBiasChangeChance**: represent the change of choosing the first of two methods for mutating a node. It's the same as **ConnectionWeightChangeChance** but a node instead of connection, and the node bias instead of the connection weight, where 0 is 0% and 1 is 100%.
   - **NodeBiasMutationChance**:  represent the chance of mutating a node, where 0 is 0% and 1 is 100%.
   - **NodeBiasOffsetPower**: The same as **ConnectionWeightOffsetPower** but to the node bias instead of connection weight.
-  '''
+  ```
   // as example
   MutationInfo info = new MutationInfo()
   {
@@ -30,7 +30,7 @@ First create a 'GenomeEnvironment' instance. to create it it needs the parameter
       NodeBiasMutationChance = 0.3,
       NodeBiasOffsetPower = 1,
   };
-  '''
+  ```
  
 - **Dynamics**: a struct that holds the information about how dynamic the mutation parameters and other parameters are. There is alot of details in this struct and it's parameters, so I will explain the basic parameters.
   - **DynamicThreshhold**: when true the **Threshold** value will be adjusted close to **SpeciesSizeTarget**. The **Threshold** value will be explained later.

@@ -64,6 +64,6 @@ Then create the population using the function from the environment created earli
 - **hiddenAct**: the activation function type for the output layer.
 - **outputAct**: the activation function type for the hidden layer.
 > note that almost all the random numbers are from a gaussian distribution.
-> ```
-> Genome[] population = environment.CreatePopulation(150, 2, 1, 1, 1, 1, false, Genome.ActivationFunction.SharpTanh, Genome.ActivationFunction.SharpSigmoid);
-> ```
+```
+Genome[] population = environment.CreatePopulation(150, 2, 1, 1, 1, 1, false, Genome.ActivationFunction.SharpTanh, Genome.ActivationFunction.SharpSigmoid);
+```

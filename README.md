@@ -39,17 +39,7 @@ First create a 'GenomeEnvironment' instance. to create it it needs the parameter
   // as example
   Dynamics dynamics = new Dynamics()
   {
-      DynamicAddConnection = new DynamicValue(),
-      DynamicAddNode = new DynamicValue(),
-      DynamicConnectionEnable = new DynamicValue(),
-      DynamicConnectionWeightChange = new DynamicValue(),
-      DynamicConnectionWeightMutation = new DynamicValue(false, -2, 1, 0.1),
-      DynamicConnectionWeightOffset = new DynamicValue(),
-      DynamicNodeBiasChange = new DynamicValue(),
-      DynamicNodeBiasMutation = new DynamicValue(false, -2, 1, 0.1),
-      DynamicNodeBiasOffset = new DynamicValue(),
       DynamicThreshhold = true,
-      GenerationDynamic = 4000,
       SpeciesSizeTarget = 32
   };
   ```
@@ -61,4 +51,19 @@ First create a 'GenomeEnvironment' instance. to create it it needs the parameter
 ```
 // as example
 GenomeEnvironment environment = new GenomeEnvironment(info, dynamics, 15, 1, 1, 0.5);
+environment.ThreshholdStep = 0.1;
 ```
+Then create the population using the function from the environment created earlier 'environment.CreatePopulation()'. There are parameters for the function, these parameters are:
+- **populationNumber**: the number of genomes desired for the population.
+- **inputNum**: the number of input nodes for each genome.
+- **outputNum**: the number of output nodes for each genome.
+- **connectionsRange**: The min and max range of the connections weight when creating them, so if it was for example 2 then the connection weights will be a random number between -2 and 2.
+- **nodesRange**: same as **connectionsRange** but with node weights instead of connection weights.
+- **initConnectionsPercent**: the percent of connection between input and output nodes when creating the genome, where 0 is 0% and 1 is 100%.
+- **enableRecurrent**: determine whether the the network can contain recurrent net structure.
+- **hiddenAct**: the activation function type for the output layer.
+- **outputAct**: the activation function type for the hidden layer.
+> note that almost all the random numbers are from a gaussian distribution.
+> ```
+> Genome[] population = environment.CreatePopulation(150, 2, 1, 1, 1, 1, false, Genome.ActivationFunction.SharpTanh, Genome.ActivationFunction.SharpSigmoid);
+> ```

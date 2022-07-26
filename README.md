@@ -82,25 +82,25 @@ void TestGenome(Genome genome)
    //test the xor input (0, 0), the expected output is 0
    xorInput[0] = 0;
    xorInput[1] = 0;
-   double genomeOutput = genome.CalculateOutput(inputs[i])[0]; //after using the genome it outputs an array of doubles, it represent the output values from the output nodes in the genome. We only took the first element because the xor only outputs one number
+   double genomeOutput = genome.CalculateOutput(xorInput)[0]; //after using the genome it outputs an array of doubles, it represent the output values from the output nodes in the genome. We only took the first element because the xor only outputs one number
    genome.Fitness += 1 - genomeOutput;
    
    //test the xor input (1, 0), the expected output is 1
    xorInput[0] = 1;
    xorInput[1] = 0;
-   genomeOutput = genome.CalculateOutput(inputs[i])[0];
+   genomeOutput = genome.CalculateOutput(xorInput)[0];
    genome.Fitness += genomeOutput;
    
    //test the xor input (0, 1), the expected output is 1
    xorInput[0] = 0;
    xorInput[1] = 1;
-   genomeOutput = genome.CalculateOutput(inputs[i])[0];
+   genomeOutput = genome.CalculateOutput(xorInput)[0];
    genome.Fitness += genomeOutput;
    
    //test the xor input (1, 1), the expected output is 0
    xorInput[0] = 1;
    xorInput[1] = 1;
-   genomeOutput = genome.CalculateOutput(inputs[i])[0];
+   genomeOutput = genome.CalculateOutput(xorInput)[0];
    genome.Fitness += 1 - genomeOutput;
 }
 ```
